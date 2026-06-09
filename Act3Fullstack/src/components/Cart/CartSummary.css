@@ -1,0 +1,47 @@
+.summary-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.summary-card h3 {
+    font-size: 1.4rem;
+    color: #4b5563;
+    margin-bottom: 1.5rem;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    color: #6b7280;
+    font-size: 1.1rem;
+}
+
+.summary-line.total {
+    border-top: 1px solid #f3f4f6;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: #111827;
+}
+
+.btn-primary.full-width {
+    width: 100%;
+    background-color: #5850ec; /* El azul índigo del botón "Ir a Pagar" */
+    color: white;
+    padding: 1.1rem;
+    border-radius: 0.8rem;
+    border: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background 0.2s;
+}
+
+.btn-primary.full-width:hover {
+    background-color: #4338ca;
+}

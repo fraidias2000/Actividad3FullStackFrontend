@@ -1,0 +1,34 @@
+/* TarjetaForm.css */
+
+.tarjeta-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Ocupa los 420px */
+  justify-content: flex-start;
+}
+
+.input-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.input-box label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #57534e;
+}
+
+.input-box input {
+  padding: 0.85rem;
+  border-radius: 0.8rem;
+  border: 1px solid #e7e5e4;
+  background: #fafaf9;
+}
+
+.input-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}

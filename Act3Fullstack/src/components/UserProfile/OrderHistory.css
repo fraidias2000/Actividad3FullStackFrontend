@@ -1,0 +1,15 @@
+h3 {
+    color: #111826;
+}
+
+.order-items-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.empty-message {
+    width: 100%;
+}

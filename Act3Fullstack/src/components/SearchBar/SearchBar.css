@@ -1,0 +1,30 @@
+.search-bar {
+  width: 100%;
+  max-width: 480px;
+}
+
+/* Input alineado con el resto de inputs del equipo (Login, Navbar):
+   fondo stone-100, borde stone-200, focus indigo con halo. */
+.search-bar-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e7e5e4;
+  border-radius: 0.75rem;
+  font-size: 0.9375rem;
+  font-family: inherit;
+  background-color: #f5f5f4;
+  color: #1c1917;
+  outline: none;
+  transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+  box-sizing: border-box;
+}
+
+.search-bar-input::placeholder {
+  color: #a8a29e;
+}
+
+.search-bar-input:focus {
+  border-color: #818cf8;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px #e0e7ff;
+}

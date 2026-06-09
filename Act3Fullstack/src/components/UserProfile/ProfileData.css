@@ -1,0 +1,154 @@
+.profile-card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background: white;
+    border-radius: 15px;
+    padding: 1.2rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    width: 100%;
+    max-width: 1000px;
+    font-family: 'Inter', sans-serif;
+    border: 2px solid #f0f0f0; /* Un borde sutil */
+}
+
+.profile-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    flex-grow: 1;
+}
+
+.avatar-wrapper {
+    position: relative;
+}
+
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #4f46e5;
+}
+
+.status-indicator {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid white;
+    background: #10b981; /* Verde online */
+}
+
+.header-info h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.header-info p {
+    margin: 4px 0 0;
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+/* Stats Section - Lo que "llena" la card */
+.profile-stats {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 2;
+    background: #f9fafb;
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    min-width: auto;
+}
+
+.stat-item {
+    text-align: center;
+    flex: 1
+}
+
+.stat-value {
+    display: block;
+    font-weight: 700;
+    color: #4f46e5;
+    font-size: 1.1rem;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-divider {
+    width: 1px;
+    background: #e5e7eb;
+}
+
+/* Body Info */
+.info-group {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.info-icon {
+    width: 36px;
+    height: 36px;
+    background: #f3f4f6;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b7280;
+}
+
+.info-text label {
+    display: block;
+    font-size: 0.75rem;
+    color: #9ca3af;
+    margin-bottom: 2px;
+}
+
+.info-text span {
+    display: block;
+    font-weight: 500;
+    color: #374151;
+}
+
+.info-text small {
+    color: #6b7280;
+    font-size: 0.85rem;
+}
+
+.edit-profile-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: none;
+    border: none;
+    color: #d1d5db;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.edit-profile-icon:hover {
+    color: #4f46e5;
+}
+
+@media (max-width: 480px) {
+    .profile-stats {
+        flex-direction: column; /* Una stat sobre otra */
+        gap: 10px;
+    }
+    .stat-divider { display: none; }
+}

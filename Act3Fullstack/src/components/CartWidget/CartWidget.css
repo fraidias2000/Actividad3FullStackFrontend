@@ -1,0 +1,44 @@
+.cart-widget {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 0.75rem; /* Mismo redondeado que el botón de Karla */
+  transition: background-color 0.25s ease;
+  position: relative;
+}
+
+.cart-widget:hover {
+  background-color: #f5f5f4; /* Mismo gris que el logout de Karla */
+}
+
+.cart-icon-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-icon {
+  font-size: 1.25rem; /* Ajustado al tamaño de sus iconos */
+  color: #57534e; /* El mismo gris de sus links */
+}
+
+.cart-widget:hover .cart-icon {
+  color: #4f46e5; /* El lila que usa ella al hacer hover */
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #4f46e5; /* Usamos su color principal para el contador */
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 5px;
+  border-radius: 0.5rem;
+  min-width: 12px;
+  text-align: center;
+  border: 2px solid white; /* Separación para que no se pegue al fondo */
+}

@@ -1,0 +1,50 @@
+/* PaymentMethod.css */
+
+.payment-content-area {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  /* IMPORTANTE: Esta altura debe ser suficiente para que la tarjeta no se corte.
+     Si ves que la tarjeta necesita más espacio, sube este número en ambos sitios. */
+  min-height: 420px; 
+}
+
+.payment-selector {
+  display: flex;
+  gap: 1.2rem;
+  margin-bottom: 2.5rem;
+}
+
+.pay-option {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.5rem;
+  border: 2px solid #e7e5e4;
+  border-radius: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.pay-option.active {
+  border-color: #4f46e5;
+  background: #f5f3ff;
+  color: #4f46e5;
+}
+
+.pay-option input { display: none; }
+
+.form-fade {
+  animation: fadeIn 0.3s ease;
+  height: 420px; /* FORZAMOS LA MISMA ALTURA QUE EL CONTENEDOR */
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

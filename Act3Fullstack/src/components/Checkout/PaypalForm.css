@@ -1,0 +1,27 @@
+/* PaypalForm.css */
+
+.paypal-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Ocupa los 420px que le da el padre */
+  justify-content: center; /* Centra el contenido verticalmente */
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.paypal-info-card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2.5rem;
+  background: #f8fafc;
+  border-radius: 1.2rem;
+  border: 1px dashed #cbd5e1;
+  width: 100%;
+}
+
+.paypal-wrapper .input-box {
+  width: 100%;
+}

@@ -1,0 +1,89 @@
+.order-item-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background: white;
+    padding: 1.2rem;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    border: 1px solid #f0f0f0; /* Un borde sutil */
+    width: 100%;
+    max-width: 100%;
+
+}
+
+.order-card-title {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.order-card-title-text {
+    font-weight: bold;
+    color: #111826;
+}
+
+.order-card-title-tag {
+    background-color: #dbfce7;
+    color: #008236;
+    border-radius: 15px;
+    padding: 0.5rem;
+    font-size: small;
+}
+
+.order-card-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.order-card-content-date, .order-card-content-products, .order-card-content-address {
+    display: flex;
+    font-size: small;
+    gap: 0.3rem;
+}
+
+.order-card-content-total {
+    font-weight: bold;
+    color: #111826;
+    font-size: x-large;
+    margin-left: 5rem;
+}
+
+.order-card-content-detail {
+    background-color: transparent;
+    color: #4f39f7;
+
+
+}
+.order-card-content-detail:hover {
+    background-color: #edf1ff;
+    border-radius: 15px;
+}
+
+.order-book-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+    color: #111826
+}
+
+@media (max-width: 600px) {
+    .order-card-content {
+        flex-direction: column; /* Apilamos los datos */
+        align-items: flex-start; /* Alineamos a la izquierda */
+    }
+
+    .order-card-content-total {
+        font-size: 1.5rem; /* Un poco más grande si está solo */
+        align-self: flex-end; /* El precio a la derecha para destacar */
+    }
+}
+
+

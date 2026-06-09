@@ -1,0 +1,21 @@
+/* Rejilla del catálogo. Mismos breakpoints que .landing-books-grid:
+   2 columnas por defecto, 4 a partir de 768px. */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .book-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2rem;
+  }
+}
+
+.book-grid-empty {
+  text-align: center;
+  color: #78716c;
+  padding: 3rem 1rem;
+  font-size: 0.9375rem;
+}

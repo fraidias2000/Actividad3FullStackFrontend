@@ -1,0 +1,50 @@
+/* Página del catálogo. Fondo stone-50 propio para tapar el crema del body,
+   igual que hace .login-page en LoginPage. */
+.home-page {
+  min-height: 80vh;
+  padding: 3rem 1rem 5rem;
+  background-color: #fafaf9;
+}
+
+/* Contenedor centrado al ancho del resto de la web (Navbar/Landing usan 72rem). */
+.home-page-container {
+  max-width: 72rem;
+  margin-inline: auto;
+}
+
+/* Cabecera sobria, sin caja de color: título negro stone-900 + subtítulo stone-500. */
+.home-page-header {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.home-page-header h1 {
+  margin: 0 0 0.75rem 0;
+  color: #1c1917;
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+
+.home-page-header p {
+  margin: 0;
+  color: #57534e;
+  font-size: 1rem;
+}
+
+.home-page-controls {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .home-page {
+    padding-inline: 2rem;
+  }
+
+  .home-page-header h1 {
+    font-size: 3rem;
+  }
+}

@@ -1,0 +1,44 @@
+/* Variables de color extraídas de la paleta del grupo */
+:root {
+  --color-terracota: #bc8a6f;
+  --color-arena-oscuro: #d1b19a;
+  --color-crema: #f3e5d8;
+  --color-verde-musgo-claro: #a8b09d;
+  --color-verde-oliva: #929982;
+  --color-verde-bosque: #5d6653;
+  
+  /* Colores funcionales basados en la paleta */
+  --bg-primary: var(--color-crema);
+  --text-primary: var(--color-verde-bosque);
+  --accent-color: var(--color-terracota);
+}
+
+/* Estilos base para la aplicación SPA */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Ejemplo de estilo para botones (podría ser un componente) */
+button {
+  background-color: var(--color-terracota);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--color-verde-oliva);
+}
+
+/* Contenedor principal para las vistas de React Router */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
