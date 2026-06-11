@@ -1,5 +1,6 @@
+import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { booksMock } from '../../hooks/booksMock';
+import { getBookById } from '../../services/bookService';
 import { useCart } from '../../context/CartContext';
 import './BookDetailPage.css';
 
@@ -16,18 +17,52 @@ function BookDetailPage() {
   // useCart consume el CartContext mediante useContext y expone `addToCart` entre otros.
   const { addToCart } = useCart();
 
-  // useParams devuelve siempre una cadena, pero el id del mock es numérico.
-  // Number(id) garantiza que la comparación con === encuentre el libro correspondiente.
-  const book = booksMock.find((b) => b.id === Number(id));
+  //Variables para obtener los libros del backend
+ const [book, setBook] = useState(null);
+ const [loading, setLoading] = useState(true);
+ const [error, setError] = useState('');
 
-  // Si el id no existe en el mock se muestra un mensaje en lugar de fallar el render.
-  if (!book) {
+ useEffect(() => {
+  async function loadBook() {
+    try {
+      setLoading(true);
+      setError('');
+
+      const bookFromApi = await getBookById(id);
+
+      if (!bookFromApi) {
+        setError('Libro no encontrado.');
+        return;
+      }
+
+      setBook(bookFromApi);
+    } catch (err) {
+      console.error(err);
+      setError('No se pudo cargar el libro.');
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  loadBook();
+}, [id]);
+  if (loading) {
+  return (
+    <section className="book-detail">
+      <button className="book-detail-back" onClick={() => navigate(-1)}>
+        ← Volver
+      </button>
+      <p className="book-detail-empty">Cargando libro...</p>
+    </section>
+  );
+}
+  if (error || !book) {
     return (
       <section className="book-detail">
         <button className="book-detail-back" onClick={() => navigate(-1)}>
           ← Volver
         </button>
-        <p className="book-detail-empty">Libro no encontrado.</p>
+        <p className="book-detail-empty">{error || 'Libro no encontrado.'}</p>
       </section>
     );
   }

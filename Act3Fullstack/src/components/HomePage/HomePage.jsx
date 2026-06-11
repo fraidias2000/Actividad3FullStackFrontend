@@ -1,14 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { booksMock } from '../../hooks/booksMock';
+import { getBooks } from '../../services/bookService';
 import { useBookFilter } from '../../hooks/useBookFilter';
 import CategoryFilter from '../CategoryFilter/CategoryFilter';
 import BookGrid from '../BookGrid/BookGrid';
 import './HomePage.css';
-
-// La lista de categorías se deriva del mock para no hardcodearla.
-// Se calcula una sola vez al cargar el módulo, no en cada render.
-const CATEGORIES = [...new Set(booksMock.map((b) => b.category))].sort();
 
 // Vista principal del catálogo. Compone el filtro de categorías y el grid de libros.
 // El término de búsqueda procede del Navbar a través del query param `q`.
@@ -17,13 +13,40 @@ function HomePage() {
   const [searchParams] = useSearchParams();
   const queryFromUrl = searchParams.get('q') || '';
 
+ //Variables para obtener los libros del backend
+  const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+  const categories = useMemo(() => {
+  return [...new Set(books.map((book) => book.category).filter(Boolean))].sort();
+  }, [books]);
+
+  useEffect(() => {
+  async function loadBooks() {
+    try {
+      setLoading(true);
+      setError('');
+
+      const booksFromApi = await getBooks();
+      setBooks(booksFromApi);
+    } catch (err) {
+      console.error(err);
+      setError('No se pudo cargar el catálogo.');
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  loadBooks();
+}, []);
+
   // El custom hook aísla la lógica de filtrado para que esta vista solo pinte la UI.
   const {
     filteredBooks,
     setSearchTerm,
     selectedCategory,
     setSelectedCategory,
-  } = useBookFilter(booksMock);
+  } = useBookFilter(books);
 
   // Cada cambio del query param propaga el nuevo término al estado interno del hook.
   // setSearchTerm es estable (proviene de useState) y por eso es seguro como dependencia.
@@ -43,19 +66,21 @@ function HomePage() {
               ? `Resultados para "${queryFromUrl}" — ${filteredBooks.length} ${
                   filteredBooks.length === 1 ? 'libro encontrado' : 'libros encontrados'
                 }`
-              : `Descubre tu próximo libro entre ${booksMock.length} ejemplares.`}
+              : `Descubre tu próximo libro entre ${books.length} ejemplares.`}
           </p>
         </header>
 
         <div className="home-page-controls">
           <CategoryFilter
-            categories={CATEGORIES}
+            categories={categories}
             selected={selectedCategory}
             onSelect={setSelectedCategory}
           />
         </div>
 
-        <BookGrid books={filteredBooks} />
+        {loading && <p>Cargando libros...</p>}
+        {error && <p>{error}</p>}
+        {!loading && !error && <BookGrid books={filteredBooks} />}
       </div>
     </section>
   );
