@@ -1,7 +1,7 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { motion } from "motion/react";
 import { useAuth } from "../../context/AuthContext";
-import { LoginForm } from "../LoginForm/LoginForm";
+import { LoginForm } from "../../components/LoginForm/LoginForm";
 import "./Login.css";
 
 export function Login() {

@@ -1,12 +1,12 @@
 import CarritoDeCompra from './Cart/Cart';
 import { Routes, Route } from "react-router-dom";
 import './App.css';
-import { Landing } from './LadingPage/LandingPage.jsx';
-import { Login } from "./LoginPage/Login.jsx";
+import { Landing } from '../pages/LadingPage/LandingPage.jsx';
+import { Login } from "../pages/LoginPage/Login.jsx";
 import Navbar from "./Navbar/Navbar.jsx";
 import Footer from "./Footer/Footer.jsx";
-import HomePage from './HomePage/HomePage.jsx';
-import BookDetailPage from './BookDetailPage/BookDetailPage.jsx';
+import HomePage from '../pages/HomePage/HomePage.jsx';
+import BookDetailPage from '../pages/BookDetailPage/BookDetailPage.jsx';
 import PrivateRoute from "./PrivateRoute/PrivateRoute.jsx";
 import {Profile} from "./UserProfile/UserProfile.jsx";
 import {OrderContext, OrderProvider} from "../context/OrderContext.jsx";

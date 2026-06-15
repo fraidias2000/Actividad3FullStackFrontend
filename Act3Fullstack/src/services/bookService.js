@@ -18,8 +18,9 @@ function normalizeBook(book) {
     price: Number(book.price ?? 0),
     category: book.category ?? book.genre ?? '',
     isbn: book.isbn ?? '',
+    publicationDate: book.publicationDate ?? '',
     description: book.description ?? '',
-    image: book.image ?? book.imageUrl ?? book.coverUrl ?? '',
+    image: book.urlImage ?? book.url_image ?? book.coverUrl ?? '',
   };
 }
 

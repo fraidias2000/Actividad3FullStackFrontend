@@ -76,7 +76,7 @@ function BookDetailPage() {
 
       <div className="book-detail-grid">
         <img
-          src={book.image}
+          src={book.image || book.urlImage || book.url_image || PLACEHOLDER_COVER}
           alt={book.title}
           className="book-detail-image"
           onError={(e) => {
@@ -90,6 +90,7 @@ function BookDetailPage() {
           <h1 className="book-detail-title">{book.title}</h1>
           <p className="book-detail-author">{book.author}</p>
           <p className="book-detail-isbn">ISBN: {book.isbn}</p>
+          <p className="book-detail-fecha-publicacion">Fecha publicación: {book.publicationDate}</p>
           <p className="book-detail-description">{book.description}</p>
 
           <div className="book-detail-footer">

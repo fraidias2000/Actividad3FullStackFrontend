@@ -2,8 +2,8 @@ import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { getBooks } from '../../services/bookService';
 import { useBookFilter } from '../../hooks/useBookFilter';
-import CategoryFilter from '../CategoryFilter/CategoryFilter';
-import BookGrid from '../BookGrid/BookGrid';
+import CategoryFilter from '../../components/CategoryFilter/CategoryFilter';
+import BookGrid from '../../components/BookGrid/BookGrid';
 import './HomePage.css';
 
 // Vista principal del catálogo. Compone el filtro de categorías y el grid de libros.
