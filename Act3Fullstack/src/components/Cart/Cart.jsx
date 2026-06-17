@@ -46,7 +46,11 @@ const CarritoDeCompra = () => {
                     <CartSummary 
                         totalItems={totalItems} 
                         totalPrice={totalPrice} 
-                        onCheckout={() => isAuthenticated ? setMostrarFormulario(true) : navigate("/login")} 
+                        onCheckout={() =>
+                                    isAuthenticated
+                                    ? setMostrarFormulario(true)
+                                    : navigate("/login?redirect=/carrito")
+}
                     />
                 )}
             </div>

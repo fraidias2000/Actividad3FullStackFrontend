@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Mail, Lock, ArrowRight } from "lucide-react";
 import "./LoginForm.css";
 
-export function LoginForm({ onSubmit }) {
+
+export function LoginForm({ onSubmit, isLoading = false }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -47,9 +48,8 @@ export function LoginForm({ onSubmit }) {
         </div>
       </div>
 
-      <button type="submit" className="login-button">
-        Iniciar Sesión
-        <ArrowRight className="login-button-icon" />
+      <button type="submit" className="login-button" disabled={isLoading}>
+        {isLoading ? "Iniciando sesión..." : "Iniciar sesión"}
       </button>
     </form>
   );

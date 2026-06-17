@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { motion } from "motion/react";
 import { useAuth } from "../../context/AuthContext";
@@ -9,14 +10,28 @@ export function Login() {
   const navigate = useNavigate();
   const location = useLocation();
 
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const redirectUrl =
     new URLSearchParams(location.search).get("redirect") || "/";
 
-  const handleLogin = ({ email, password }) => {
+  const handleLogin = async ({ email, password }) => {
     if (!email || !password) return;
 
-    login(email, password);
-    navigate(redirectUrl);
+    try {
+      setLoading(true);
+      setError("");
+
+      await login(email, password);
+
+      navigate(redirectUrl);
+    } catch (err) {
+      console.error(err);
+      setError(err.message || "No se pudo iniciar sesión.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -31,10 +46,12 @@ export function Login() {
           <p>Inicia sesión para continuar con tu compra</p>
         </div>
 
-        <LoginForm onSubmit={handleLogin} />
+        {error && <p className="login-error">{error}</p>}
+
+        <LoginForm onSubmit={handleLogin} isLoading={loading} />
 
         <p className="login-help">
-          Para este prototipo, usa cualquier correo y contraseña.
+          Usa afraidias27@gmail.com / admin123
         </p>
       </motion.div>
     </div>

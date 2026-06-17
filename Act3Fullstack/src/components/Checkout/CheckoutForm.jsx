@@ -3,13 +3,14 @@ import { useCart } from '../../context/CartContext';
 import PaymentMethod from './PaymentMethod';
 import OrderSummary from './OrderSummary';
 import './CheckoutForm.css';
+import { useAuth } from "../../context/AuthContext";
 
 const CheckoutForm = ({ onOrderSuccess }) => {
   const { clearCart } = useCart();
   const [metodo, setMetodo] = useState('tarjeta');
   
   // Tu lógica de login original
-  const isLoggedIn = true; 
+const { isAuthenticated } = useAuth();
 
   // Esta es la función que recupera tu lógica anterior
   const manejarPagoFinal = (montoTotal) => {
@@ -23,7 +24,7 @@ const CheckoutForm = ({ onOrderSuccess }) => {
     onOrderSuccess();
   };
 
-  if (!isLoggedIn) {
+if (!isAuthenticated) {
     return (
       <div className="login-alert">
         <h3>Debes estar loggeado</h3>
