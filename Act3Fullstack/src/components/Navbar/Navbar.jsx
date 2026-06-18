@@ -66,8 +66,7 @@ function Navbar() {
           <span>Relatos de Papel</span>
         </Link>
 
-        {/* MODIFICADO POR KARLA — buscador en la cabecera (estilo Figma).
-            Reutiliza el componente SearchBar y dispara la navegación al catálogo. */}
+        {}
         <form
           className="navbar-search-form"
           onSubmit={handleSearchSubmit}
@@ -76,16 +75,17 @@ function Navbar() {
         >
           <SearchBar value={query} onChange={setQuery} />
         </form>
-        {/* — fin sección Karla — */}
+        {}
 
         <div className="navbar-links">
           <Link to="/">Inicio</Link>
-          {/* MODIFICADO POR KARLA — el catálogo es público en mi rama:
-              elimino el redirect condicional al login. */}
+          {}
           <Link to="/catalogo">Catálogo</Link>
+          {}
+          <Link to="/chat">Chat IA</Link>
         </div>
         <div className="navbar-actions">
-          {/* AÑADIDO POR ANA — Integración del carrito en la barra de acciones */}
+          {}
           <CartWidget />
 
           {isAuthenticated ? (

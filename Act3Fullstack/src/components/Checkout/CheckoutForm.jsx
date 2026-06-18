@@ -14,13 +14,12 @@ const { isAuthenticated } = useAuth();
 
   // Esta es la función que recupera tu lógica anterior
   const manejarPagoFinal = (montoTotal) => {
-    // 1. Aviso del navegador con el precio y método
-    alert(`Pago realizado de ${montoTotal.toFixed(2)}€ con ${metodo}`);
+   
     
-    // 2. Vaciamos el carrito
+    // 1. Vaciamos el carrito
     clearCart();
     
-    // 3. Lanzamos el aviso de éxito (el modal)
+    // 2. Lanzamos el aviso de éxito (el modal)
     onOrderSuccess();
   };
 

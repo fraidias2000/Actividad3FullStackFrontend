@@ -69,8 +69,13 @@ export function Landing() {
 
             {/**Boton para explorar el catalogo */}
             <div className="landing-actions">
-              <Link to="/catalogo"  className="landing-btn landing-btn-primary">
-                Explorar Catálogo
+              <Link to="/catalogo" className="landing-btn landing-btn-primary">
+                    Explorar Catálogo
+                <ArrowRight className="landing-icon-md" />
+              </Link>
+
+              <Link to="/chat" className="landing-btn landing-btn-secondary">
+                Hablar con el asistente
                 <ArrowRight className="landing-icon-md" />
               </Link>
             </div>
